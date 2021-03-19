@@ -46,8 +46,15 @@ var restaurant = /** @class */ (function (_super) {
 //child class Events
 var events = /** @class */ (function (_super) {
     __extends(events, _super);
-    function events() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function events(lCity, lZipCode, lAdress, lImg, lRestName, lDescription, eDate, eTime, ePrice) {
+        var _this = _super.call(this, lCity, lZipCode, lAdress, lImg, lRestName, lDescription) || this;
+        _this.eventDate = eDate;
+        _this.eventTime = eTime;
+        _this.ticketPrice = ePrice;
+        return _this;
     }
+    events.prototype.displayEventInfos = function () {
+        return _super.prototype.display + ("<p class=\"\">Event begins on " + this.eventDate + " at " + this.eventTime + "</p>\n     <p class=\"\">Ticket Price Information: " + this.ticketPrice + "</p>");
+    };
     return events;
 }(Locations));
