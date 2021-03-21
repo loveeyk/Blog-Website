@@ -10,9 +10,9 @@ let places = []; //..for Places
 let restaurants = []; //..for Restaurants
 let events = []; //..for Events
 places = [new __Place("Stephansplatz", "Vienna", "1010", "Stephansplatz 1", "../img/vienna.jpeg", "This is a beautiful place"),
-    new __Place("Stephansplatz", "Vienna", "1010", "Stephansplatz 1", "../img/vienna.jpeg", "This is a beautiful place"),
-    new __Place("Stephansplatz", "Vienna", "1010", "Stephansplatz 1", "../img/vienna.jpeg", "This is a beautiful place"),
-    new __Place("Stephansplatz", "Vienna", "1010", "Stephansplatz 1", "../img/vienna.jpeg", "This is a beautiful place")
+    new __Place("Stephansplatz", "Vienna", "1010", "Stephansplatz 1", "../img/turkey.jpeg", "This is a beautiful place"),
+    new __Place("Stephansplatz", "Vienna", "1010", "Stephansplatz 1", "../img/venice.jpeg", "This is a beautiful place"),
+    new __Place("Stephansplatz", "Vienna", "1010", "Stephansplatz 1", "../img/china.jpeg", "This is a beautiful place")
 ];
 restaurants = [new __Restaurant("Gasthaus Hansi", "Vienna", "1220", "Hansistreet", "../img/turkey.jpeg", "Restaurant Hansi serves excellent food", "+436608224253", "Austrian Food", "http://www.hansi.at"),
     new __Restaurant("Gasthaus Hansi", "Vienna", "1220", "Hansistreet", "../img/turkey.jpeg", "Restaurant Hansi serves excellent food", "+436608224253", "Austrian Food", "http://www.hansi.at"),
