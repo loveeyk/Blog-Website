@@ -1,7 +1,7 @@
 import { __Location } from "./Location.js";
 export class __Place extends __Location {
-    constructor(locationName, city, zipCode, adress, imgUrl, desc) {
-        super(locationName, city, zipCode, adress, imgUrl, desc);
+    constructor(locationName, country, city, zipCode, adress, imgUrl, desc, creationDate) {
+        super(locationName, country, city, zipCode, adress, imgUrl, desc, creationDate);
     }
     display() {
         return super.display("Visit this Place");

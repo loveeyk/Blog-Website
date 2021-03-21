@@ -4,13 +4,15 @@ export class __Place extends __Location {
 
   constructor(
     locationName:string,
+    country:string,
     city:string,
     zipCode:string,
     adress:string,
     imgUrl:string,
-    desc:string
+    desc:string,
+    creationDate:Date
 ) {
-    super(locationName,city,zipCode,adress,imgUrl,desc)
+    super(locationName,country,city,zipCode,adress,imgUrl,desc,creationDate)
   }
 
   display(){
