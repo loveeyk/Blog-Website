@@ -1,16 +1,18 @@
 import { __Event } from './classes/Event.js';
 import { __Restaurant } from './classes/Restaurant.js';
 import { __Place } from './classes/Place.js';
+//Get HTMLElements
 let places_cardwrapper = document.querySelector('#places-cardwrapper');
 let restaurants_cardwrapper = document.querySelector('#restaurants-cardwrapper');
 let events_cardwrapper = document.querySelector('#events-cardwrapper');
 let sort_input = document.querySelector('#sort');
 let isAsc = true;
-//Definde Arrays
+//Define Arrays
 let locations = []; //Array for Everything
 let places = []; //..for Places
 let restaurants = []; //..for Restaurants
 let events = []; //..for Events
+//Instantiate all Objects
 places = [new __Place("Schloss Schönbrunn", "Austria", "Vienna", "1130", "Schönbrunnerstr. 157", "../img/vienna.jpeg", "The 1,441-room Rococo palace is one of the most important architectural, cultural, and historic monuments in the country. The history of the palace and its vast gardens spans over 300 years, reflecting the changing tastes, interests, and aspirations of successive Habsburg monarchs. It has been a major tourist attraction since the mid-1950s.", new Date("2020-11-15")),
     new __Place("Taj Mahal", "India", "Agra - Dharmapuri", "282001", "Tajganj", "../img/tajmahal.jpeg", "The Taj Mahal was commissioned by Shah Jahan in 1631, to be built in the memory of his wife Mumtaz Mahal, who died on 17 June that year. The imperial court documenting Shah Jahan's grief after the death of Mumtaz Mahal illustrates the love story held as the inspiration for the Taj Mahal.", new Date("2020-11-18")),
     new __Place("Piazza San Marco", "Italy", "Venice", "30124", "St. Mark's Square", "../img/venice.jpeg", "Venice is an enchanting city that casts visitors under an intoxicating spell. It’s dreamy and romantic, with an undercurrent of mystery and drama. And while Carnival is only once a year, its mood is present year-round. The Grand Canal is the center of activity, with gondoliers singing to the passengers in their boats.", new Date("2019-10-15")),
@@ -26,16 +28,22 @@ events = [new __Event("Lunar New Year", "China", "Beijing", "64372", "Beijingstr
     new __Event("Carnevale", "Italy", "Viareggio", "40954", "Pilaggio Viareggio", "../img/carneval.jpeg", "Venice has one of the top carnival festivals in the world, but Carnevale is celebrated in many Italian towns. Viareggio, on the coast of Tuscany, is known for its elaborate floats, and parades are held on several weekends. Carnevale events often occur prior to the actual Carnival date, too. Carnevale usually falls in February.", new Date(), 49.99, new Date("2021-02-01")),
     new __Event("Onam Festival", "India", "Kerala", "AD3838", "Kerala Colony", "../img/onam.webp", "The Onam Festival is the most significant harvest festival in Kerala, celebrating Nature’s reward after a whole year of hard work and attracting thousands of local and international tourists. For cultural buffs, this is the best time to travel through this Indian state and sample the diversity of its culture and its colourful traditions.", new Date(), 5.90, new Date("2021-03-01"))
 ];
+//Combine all three arrays = Array of Superclass Type Location
 locations = [...places, ...restaurants, ...events];
+//Event listener on input change
 sort_input.addEventListener('change', (e) => {
     isAsc = (sort_input.value === 'desc') ? false : true;
     console.log(isAsc);
     renderCards(locations);
 });
+//Deletes all Cards and displays them again
 let renderCards = (locationarray) => {
     deleteCards();
+    //sorts according to isAsc boolean
     let sortedArray = locationarray.sort((a, b) => isAsc ? (a.creationDate - b.creationDate) : (b.creationDate - a.creationDate));
+    //iterate all locatin objects
     sortedArray.forEach(location => {
+        //check which class name and append in according wrapper
         switch (location.constructor.name) {
             case '__Place':
                 places_cardwrapper.appendChild(location.display());
